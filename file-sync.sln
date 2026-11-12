@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "veeam-test-file-sync", "veeam-test-file-sync\veeam-test-file-sync.csproj", "{8F71C126-F024-44D2-8195-87BEEF9CC431}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "file-sync", "file-sync\file-sync.csproj", "{8F71C126-F024-44D2-8195-87BEEF9CC431}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
