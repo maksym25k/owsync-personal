@@ -32,6 +32,7 @@ class Program
     
     static void Main(string[] args)
     {
+        Console.WriteLine("Process ID: " + Environment.ProcessId);
         try
         {
             ParseArgs(args);

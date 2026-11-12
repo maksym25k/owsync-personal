@@ -34,6 +34,7 @@ public class Comparator
     {
         _logger = logger;
     }
+    /*
 
     private FileCache CreateFileCache(FileInfo fi)
     {
@@ -53,8 +54,8 @@ public class Comparator
         fc.Size = fi.Length;
         fc.Hash = CalculateMd5(fi);
     }
-    
-    
+
+
     bool CacheCompare(FileInfo sourceFileInfo, FileInfo targetFileInfo)
     {
         FileCache? sourceFileCache = _sourceFilesCache.GetValueOrDefault(sourceFileInfo.FullName);
@@ -103,22 +104,26 @@ public class Comparator
     byte[] CalculateMd5(FileInfo fileInfo)
     {
         using var md5 = MD5.Create();
-        
+
         using var fileStream = fileInfo.OpenRead();
         byte[] hash = md5.ComputeHash(fileStream);
         return hash;
-        
-    }
+
+    }*/
 
     private bool CompareFile(string sourcePath, string targetPath)
     {
         FileInfo sourceFileInfo = new FileInfo(sourcePath);
         FileInfo targetFileInfo = new FileInfo(targetPath);
+
+
+        if (targetFileInfo.Length == sourceFileInfo.Length &&
+            targetFileInfo.LastWriteTimeUtc == sourceFileInfo.LastWriteTimeUtc)
+        {
+            return true;
+        }
         
-        if (targetFileInfo.Length != sourceFileInfo.Length) return false;
-        if (targetFileInfo.Length == sourceFileInfo.Length && targetFileInfo.LastWriteTimeUtc == sourceFileInfo.LastWriteTimeUtc) return true;
-        
-        return CacheCompare(sourceFileInfo, targetFileInfo);
+        return false;
     }
 
     public string[] Compare(string[] sourcePaths, string[] targetPaths)
